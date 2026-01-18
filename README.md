@@ -80,9 +80,10 @@ GET /?category=reality
 
 ### 2. JSON格式调用  
 返回JSON格式的图片信息：
-
-GET /?category=acg&type=json
-GET /?category=reality&type=json
+```http
+GET /?category=acg&type=json   
+GET /?category=reality&type=json   
+```
 返回示例：
 ```json
 json
