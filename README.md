@@ -96,9 +96,9 @@ json
 ### 3. 直接输出图片
 直接返回图片二进制数据：
 
-```http
-GET /?category=acg&type=img
-GET /?category=reality&type=img
+```http  
+GET /?category=acg&type=img  
+GET /?category=reality&type=img  
 ```
 ### 4. 访问首页
 显示统计信息和API文档：
