@@ -1,53 +1,284 @@
-body{
-	font-family: 微软雅黑;
-	background: url(./index.php);
-	background-repeat:no-repeat;
-	background-attachment:fixed;
-	background-position: center center;
-	background-size: cover;;
+/* 全局样式 */
+* {
+    box-sizing: border-box;
 }
-.bottom{
-	position: fixed;
-	height: 30px;
-	width: 100%;
-	bottom: 0px;
-	text-align: center;
-	font-size: 20px;
-	color: #2196F3;
-	text-shadow: #000 1px 1px 1px;
-	margin-bottom: 10px;
+
+body {
+    font-family: "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+    background: url('https://ps.ssl.qhimg.com/t02906637da23a078da.jpg') no-repeat center center fixed;
+    background-size: cover;
+    color: #333;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
-pre{
-	color: #2196F3;
-	font-size: 18px;
-	font-family: 微软雅黑;
-	background: rgba(255, 255, 255);
-	line-height: 30px;
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
 }
-.json_note{
-	color: #004CFF;
-	font-weight:bold;
+
+/* 头部样式 */
+.header {
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 30px 0;
+    text-align: center;
+    margin-bottom: 30px;
 }
-.json_key{ 
-	color: #92278f;
-	font-weight:bold;
+
+.site-title {
+    color: #6c5ce7;
+    font-size: 2.5rem;
+    margin: 0 0 10px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
 }
-.json_string{ 
-	color: #3ab54a;
-	font-weight:bold;
+
+.site-subtitle {
+    color: #636e72;
+    font-size: 1.2rem;
+    margin: 0;
 }
-.title{
-	text-shadow: rgb(0, 0, 0) 1px 1px 1px;font-size: 39px;color: #00CEFF;position: absolute;top: 3px;left: 61px;
+
+/* 主内容区域 */
+.main-content {
+    flex: 1;
+    padding-bottom: 30px;
 }
-.title2{
-	font-size:24px;color: #F100FF;position: absolute;top: 18px;left: 150px;
-} 
-.container{
-	position: relative;top: 90px;margin: 0 auto;
+
+.api-info {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 25px;
 }
-.well{
-	background: rgba(255, 255, 255);text-shadow: #000 1px 1px 1px;color: #00F1FF;font-size: 20px;
+
+/* 卡片通用样式 */
+.stats-card,
+.usage-card,
+.endpoints-card,
+.quick-test {
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    padding: 25px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-.well a{
-	color: #00F1FF;font-size: 20px;
+
+.stats-card:hover,
+.usage-card:hover,
+.endpoints-card:hover,
+.quick-test:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+}
+
+.stats-card h2,
+.usage-card h2,
+.endpoints-card h2,
+.quick-test h2 {
+    color: #6c5ce7;
+    border-bottom: 2px solid #f1f1f1;
+    padding-bottom: 15px;
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+}
+
+.stats-card h2 i,
+.usage-card h2 i,
+.endpoints-card h2 i,
+.quick-test h2 i {
+    margin-right: 10px;
+}
+
+/* 统计卡片 */
+.highlight {
+    color: #e84393;
+    font-weight: bold;
+}
+
+.stats-card p {
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+}
+
+/* 使用说明卡片 */
+.note-section p {
+    background: #f8f9fa;
+    padding: 12px 15px;
+    border-left: 4px solid #6c5ce7;
+    margin-bottom: 15px;
+    border-radius: 0 4px 4px 0;
+}
+
+.note-section i {
+    color: #6c5ce7;
+    margin-right: 8px;
+}
+
+/* 端点卡片 */
+.endpoint {
+    margin-bottom: 25px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #f1f1f1;
+}
+
+.endpoint:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: none;
+}
+
+.endpoint h3 {
+    color: #2d3436;
+    margin-top: 0;
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+    padding-left: 10px;
+    border-left: 4px solid #6c5ce7;
+}
+
+.endpoint h4 {
+    color: #636e72;
+    font-size: 1.1rem;
+    margin-top: 15px;
+    margin-bottom: 8px;
+}
+
+.endpoint p {
+    font-size: 1.1rem;
+    margin-bottom: 8px;
+}
+
+pre {
+    background: #2d3436;
+    color: #dfe6e9;
+    padding: 15px;
+    border-radius: 6px;
+    overflow-x: auto;
+    font-size: 1.1rem;
+    line-height: 1.5;
+    margin: 10px 0;
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+code {
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.json-example {
+    background: #2d3436;
+}
+
+.json-example code {
+    color: #fd79a8;
+}
+
+/* 快速测试区域 */
+.quick-test {
+    margin-top: 30px;
+}
+
+.test-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.test-buttons .btn {
+    padding: 12px 20px;
+    font-size: 1.1rem;
+    border-radius: 6px;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    transition: all 0.3s ease;
+}
+
+.test-buttons .btn i {
+    margin-right: 8px;
+}
+
+.test-buttons .btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* 底部样式 */
+.footer {
+    background: rgba(44, 44, 52, 0.9);
+    color: #dfe6e9;
+    text-align: center;
+    padding: 20px 0;
+    margin-top: auto;
+}
+
+.footer p {
+    margin: 5px 0;
+}
+
+/* 响应式设计 */
+@media (min-width: 768px) {
+    .api-info {
+        grid-template-columns: 1fr 1fr;
+    }
+    
+    .endpoints-card {
+        grid-column: 1 / span 2;
+    }
+    
+    .test-buttons {
+        justify-content: center;
+    }
+}
+
+@media (min-width: 992px) {
+    .api-info {
+        grid-template-columns: 1fr 1fr 2fr;
+    }
+    
+    .endpoints-card {
+        grid-column: auto;
+    }
+}
+
+@media (max-width: 767px) {
+    .test-buttons {
+        flex-direction: column;
+    }
+    
+    .test-buttons .btn {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+/* 备案信息样式 */
+.footer a {
+    color: #dfe6e9;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    margin: 0 5px;
+}
+
+.footer a:hover {
+    color: #6c5ce7;
+    text-decoration: underline;
+}
+
+.footer span {
+    color: #999;
+}
+
+/* 公安备案图标样式 */
+.footer img {
+    height: 16px;
+    margin-right: 5px;
+    vertical-align: middle;
 }
